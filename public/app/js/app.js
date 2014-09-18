@@ -32,6 +32,10 @@ inspirationApp.config(['$routeProvider',
         templateUrl: 'app/partials/edit-author.html',
         controller: 'EditAuthorCtrl'
       }).
+      when('/jobs', {
+        templateUrl: 'app/partials/show-jobs.html',
+        controller: 'ShowJobsCtrl'
+      }).
       otherwise({
         redirectTo: '/quotes'
       });

@@ -143,3 +143,11 @@ inspirationControllers.controller('EditAuthorCtrl', [
       });
     }
   }]);
+
+inspirationControllers.controller('ShowJobsCtrl', [
+    '$scope', '$http',
+    function($scope, $http) {
+        $http.get("/jobs").success(function(response) {
+            $scope.jobs = response;
+        });
+    }]);

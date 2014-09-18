@@ -1,4 +1,4 @@
-source "https://www.rubygems.org"
+source "https://ruby.taobao.org"
 
 gem 'sinatra'
 gem 'activerecord'
@@ -7,6 +7,7 @@ gem 'rake'
 gem 'haml'
 gem 'rack-flash3'
 gem 'json'
+gem 'sinatra-reloader'
 
 group :development do
   gem 'shotgun'

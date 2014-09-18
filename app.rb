@@ -1,6 +1,8 @@
 require 'bundler'
 Bundler.require;
 require 'sinatra/activerecord'
+require 'open-uri'
+require 'sinatra/reloader' if development?
 
 Dir.glob('./lib/*.rb') do |model|
   require model
@@ -139,6 +141,11 @@ class Inspiration < Sinatra::Application
     end
     @author.destroy
     redirect '/'
+  end
+
+  get '/jobs' do
+    apiUrl = "http://api.usa.gov/jobs/search.json?query=nursing+jobs"
+    open(apiUrl).read
   end
 
 end
