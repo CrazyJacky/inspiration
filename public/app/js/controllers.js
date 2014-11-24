@@ -82,6 +82,8 @@ inspirationControllers.controller('EditQuoteCtrl', [
     $http.get("/quotes/" + $routeParams.id + ".json").success(function(response) {
       $scope.quote = response["quote"];
       $scope.author = response["author"];
+      $scope.item = $scope.quote
+      $scope.item.author = $scope.author
     });
 
     $scope.updateQuote = function(item) {
@@ -135,6 +137,8 @@ inspirationControllers.controller('EditAuthorCtrl', [
     $http.get("/authors/" + $routeParams.id + ".json").success(function(response) {
       $scope.author = response["author"];
       $scope.quotes = response["quotes"];
+      $scope.item = response;
+      $scope.item.author = $scope.author
     });
 
     $scope.updateAuthor = function(item) {
@@ -151,3 +155,10 @@ inspirationControllers.controller('ShowJobsCtrl', [
             $scope.jobs = response;
         });
     }]);
+
+inspirationControllers.controller('LoginCtrl', [
+    '$scope', '$http',
+    function($scope, $http) {
+
+    }
+])

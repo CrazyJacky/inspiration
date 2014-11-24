@@ -32,10 +32,20 @@ class Inspiration < Sinatra::Application
           'Access-Control-Allow-Headers' => 'Content-Type' 
   end
 
-  set :protection, false
+  enable :sessions
+
+  helpers do
+    def authorize!
+      redirect(to('/login')) unless session[:user_id]
+    end
+  end
+
+
+  #set :protection, false
 
   # show everything
   get '/' do
+    #authorize!
     @users = User.all
     @authors = Author.all
     @quotes = Quote.all
